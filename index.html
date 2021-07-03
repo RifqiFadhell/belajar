@@ -17,6 +17,12 @@
             placeholder="******"
             id="password1"/>
 
+            <transition name="fade">
+                <div v-if="performingRequest" class="loading">
+                  <p>Loading...</p>
+                </div>
+              </transition>
+
           <button @click="login" style="float:right" class="button">Log In</button>
         </form>
         <transition name="fade">
