@@ -1,0 +1,30 @@
+<html>
+  <div id="login">
+    <transition name="fade">
+      <div v-if="performingRequest" class="loading">
+        <p>Tunggu Sebentar yaaa...</p>
+      </div>
+    </transition>
+    <section>
+      <div class="col2" :class="{ 'signup-form': !showLoginForm && !showForgotPassword }">
+        <form v-if="showLoginForm" @submit.prevent>
+          <label for="email1">Email</label>
+          <input v-model.trim="loginForm.email" type="text" placeholder="you@email.com" id="email1" />
+          <label for="passord1">Password</label>
+          <input
+            v-model.trim="loginForm.password"
+            type="password"
+            placeholder="******"
+            id="password1"/>
+
+          <button @click="login" style="float:right" class="button">Log In</button>
+        </form>
+        <transition name="fade">
+          <div v-if="errorMsg !== ''" class="error-msg">
+            <p>{{ errorMsg }}</p>
+          </div>
+        </transition>
+      </div>
+    </section>
+  </div>
+</html>
